@@ -27,19 +27,4 @@ def nfsm(string, current, edges, accepting):
                     return True
         return False
 
-def nfsmaccepts(current,edges,accepting,visited): 
-    if current in visited:
-        return None
-    elif current in accepting:
-        return ""
-    else:
-        newvisited = visited + [current]
-        for edge in edges:
-            if edge[0] == current:
-                for newstate in edges[edge]:
-                    foo = nfsaccepts(newstate,edges,accepting,newvisited)
-                    if foo != None:
-                        return edge[1] + foo
-        return None
-
 print fsm(string,1,edges,accepting)
